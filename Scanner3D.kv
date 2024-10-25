@@ -1,0 +1,86 @@
+#:kivy 2.3.0
+
+#Widgets
+
+<TelaInicial>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1    # Blue
+        Rectangle:
+            size: self.width, self.height
+    Button:
+        id: Btn_Iniciar
+        size_hint: 0.233, 0.0786
+        pos: root.center_x - (self.width/2), root.center_y - (self.height/2)
+        background_normal: 'Assets/img/Btn_Partida.png'
+        background_down: 'Assets/img/Btn_Partida_Pressed.png'
+        on_release:
+            root.manager.transition.direction = 'left'
+            root.manager.current = 'software'
+    Button:
+        id: Btn_Creditos
+        size_hint: 0.233, 0.0786
+        pos: root.center_x - 9*(root.width/10), root.center_y - 9*(root.height/10)
+        background_normal: 'Assets/img/Btn_Instrucoes.png'
+        background_down: 'Assets/img/Btn_Instrucoes_Pressed.png'
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = 'creditos'
+    Button:
+        id: Btn_Configurações
+        size_hint: 0.233, 0.0786
+        pos: root.center_x - (root.width/10), root.center_y - (root.height/10)
+        background_normal: 'Assets/img/Btn_Classificacao.png'
+        background_down: 'Assets/img/Btn_Classificacao_Pressed.png'
+        on_release:
+            root.manager.transition.direction = 'up'
+            root.manager.current = 'configuracoes' 
+
+
+<TelaCreditos>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 1    # Green
+        Rectangle:
+            size: self.width, self.height
+    Button:
+        id: Btn_Voltar
+        size_hint: 0.0574, 0.09742
+        pos: root.center_x - 8*self.width, root.center_y + 225
+		background_normal: 'Assets/img/Btn_Voltar.png'
+        background_down: 'Assets/img/Btn_Voltar_Pressed.png'
+        on_press:
+            root.manager.transition.direction = 'left'
+            root.manager.current = 'inicial'
+
+
+<TelaConfiguracoes>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1    # Red
+        Rectangle:
+            size: self.width, self.height
+    Button:
+        id: Btn_Voltar
+        size_hint: 0.0574, 0.09742
+        pos: root.center_x - 8*self.width, root.center_y + 225
+		background_normal: 'Assets/img/Btn_Voltar.png'
+        background_down: 'Assets/img/Btn_Voltar_Pressed.png'
+        on_press:
+            root.manager.transition.direction = 'left'
+            root.manager.current = 'inicial'
+
+
+<TelaSoftware>:
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1    # white
+        Rectangle:
+            size: self.width, self.height
+
+    
+
+
+
+
+        
