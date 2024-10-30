@@ -12,26 +12,23 @@
         id: Btn_Iniciar
         size_hint: 0.233, 0.0786
         pos: root.center_x - (self.width/2), root.center_y - (self.height/2)
-        background_normal: 'Assets/img/Btn_Partida.png'
-        background_down: 'Assets/img/Btn_Partida_Pressed.png'
+        text:"Iniciar"
         on_release:
             root.manager.transition.direction = 'left'
             root.manager.current = 'software'
     Button:
         id: Btn_Creditos
         size_hint: 0.233, 0.0786
-        pos: root.center_x - 9*(root.width/10), root.center_y - 9*(root.height/10)
-        background_normal: 'Assets/img/Btn_Instrucoes.png'
-        background_down: 'Assets/img/Btn_Instrucoes_Pressed.png'
+        pos: root.center_x - 3*(self.width/2), root.center_y - (self.height/2)
+        text:"Créditos"
         on_release:
             root.manager.transition.direction = 'right'
             root.manager.current = 'creditos'
     Button:
         id: Btn_Configurações
         size_hint: 0.233, 0.0786
-        pos: root.center_x - (root.width/10), root.center_y - (root.height/10)
-        background_normal: 'Assets/img/Btn_Classificacao.png'
-        background_down: 'Assets/img/Btn_Classificacao_Pressed.png'
+        pos: root.center_x + (self.width/2), root.center_y - (self.height/2)
+        text:"Configurações"
         on_release:
             root.manager.transition.direction = 'up'
             root.manager.current = 'configuracoes' 
@@ -71,16 +68,89 @@
             root.manager.current = 'inicial'
 
 
+
+
 <TelaSoftware>:
     canvas:
         Color:
             rgba: 1, 1, 1, 1    # white
         Rectangle:
             size: self.width, self.height
-
     
+    TextInput:
+        id: input_name
+        hint_text:'Insira o seu nome'
+        size_hint: 0.10, 0.10
+        pos: root.center_x - 3*(self.width/2), root.center_y + (self.height/2)
+        on_text: app.process()
 
+    Label:
+        id: label_name
+        text:'Nome'
+        size_hint: 0.10, 0.10
+        pos: input_name.center_x - 100, root.center_y + (self.height/2)
 
+    TextInput:
+        id: input_sexo
+        hint_text:'Insira o seu sexo'
+        size_hint: 0.10, 0.10
+        pos: root.center_x - (self.width/2), root.center_y + (self.height/2)
+        on_text: app.process()
 
+    Label:
+        id: label_sexo
+        text:'Sexo'
+        size_hint: 0.10, 0.10
+        pos: input_sexo.center_x - 100, root.center_y + (self.height/2)
+    
+    TextInput:
+        id: input_idade
+        hint_text:'Insira a sua idade'
+        size_hint: 0.10, 0.10
+        pos: root.center_x + (self.width/2), root.center_y + (self.height/2)
+        on_text: app.process()
 
+    Label:
+        id: label_idade
+        text:'Idade'
+        size_hint: 0.10, 0.10
+        pos: input_idade.center_x - 100, root.center_y + (self.height/2)
+
+    TextInput:
+        id: input_etnia
+        hint_text:'Insira a sua etnia'
+        size_hint: 0.10, 0.10
+        pos: root.center_x - 3*(self.width/2), root.center_y - (self.height/2)
+        on_text: app.process()
+
+    Label:
+        id: label_etnia
+        text:'Etnia'
+        size_hint: 0.10, 0.10
+        pos: input_etnia.center_x - 100, root.center_y + (self.height/2)
+
+    TextInput:
+        id: input_altura
+        hint_text:'Insira a sua altura (cm)'
+        size_hint: 0.10, 0.10
+        pos: root.center_x - (self.width/2), root.center_y - (self.height/2)
+        on_text: app.process()
+
+    Label:
+        id: label_altura
+        text:'Altura'
+        size_hint: 0.10, 0.10
+        pos: input_altura.center_x - 100, root.center_y + (self.height/2)
         
+    TextInput:
+        id: input_peso
+        hint_text:'Insira o seu peso (gramas)'
+        size_hint: 0.10, 0.10
+        pos: root.center_x + (self.width/2), root.center_y - (self.height/2)
+        on_text: app.process()
+
+    Label:
+        id: label_peso
+        text:'Peso'
+        size_hint: 0.10, 0.10
+        pos: label_peso.center_x - (self.width/2), root.center_y + (self.height/2)
