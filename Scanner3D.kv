@@ -71,86 +71,155 @@
 
 
 <TelaSoftware>:
-    canvas:
+    canvas.before:
         Color:
             rgba: 1, 1, 1, 1    # white
         Rectangle:
             size: self.width, self.height
+
+    canvas:
+        Color:
+            rgba: (0,1,0,1)
+        RoundedRectangle:
+            size : self.width/2, 0.9*self.height
+            pos : root.center_x - (self.width/4), root.center_y - (0.9*self.height/2)                 
+            radius: [(40, 40), (40, 40), (40, 40), (40, 40)]
+    
     
     TextInput:
         id: input_name
         hint_text:'Insira o seu nome'
-        size_hint: 0.10, 0.10
-        pos: root.center_x - 3*(self.width/2), root.center_y + (self.height/2)
+        size_hint: 0.30, 0.0725 
+        pos: root.center_x - 3*(self.width/2), root.center_y + 5*(self.height/2)
+        multiline: False
+        font_size: self.height*0.6
+        background_color: 1, 1, 1, 1
+        cursor_color: 0, 0, 0, 1
+        padding_x: 20
         on_text: app.process()
 
     Label:
         id: label_name
         text:'Nome'
-        size_hint: 0.10, 0.10
-        pos: input_name.center_x - 100, root.center_y + (self.height/2)
+        pos: input_name.right - input_name.width, input_name.top
+        color: (0,0,0,1)
+        size_hint: input_name.size_hint
+        font_size: self.height*0.6
+        text_size: self.size
+        halign: "left"
+        valign: "bottom"
 
-    TextInput:
-        id: input_sexo
-        hint_text:'Insira o seu sexo'
-        size_hint: 0.10, 0.10
-        pos: root.center_x - (self.width/2), root.center_y + (self.height/2)
-        on_text: app.process()
-
-    Label:
-        id: label_sexo
-        text:'Sexo'
-        size_hint: 0.10, 0.10
-        pos: input_sexo.center_x - 100, root.center_y + (self.height/2)
-    
     TextInput:
         id: input_idade
         hint_text:'Insira a sua idade'
-        size_hint: 0.10, 0.10
-        pos: root.center_x + (self.width/2), root.center_y + (self.height/2)
+        size_hint: 0.10, 0.0725 
+        pos: input_name.right - input_name.width, root.center_y + (self.height/2)
+        multiline: False
+        font_size: self.height*0.6
+        background_color: 1, 1, 1, 1
+        cursor_color: 0, 0, 0, 1
+        padding_x: 20
         on_text: app.process()
 
     Label:
         id: label_idade
         text:'Idade'
-        size_hint: 0.10, 0.10
-        pos: input_idade.center_x - 100, root.center_y + (self.height/2)
+        pos: input_idade.right - input_idade.width, input_idade.top
+        color: (0,0,0,1)
+        size_hint: input_idade.size_hint
+        font_size: self.height*0.6
+        text_size: self.size
+        halign: "left"
+        valign: "bottom"
 
     TextInput:
-        id: input_etnia
-        hint_text:'Insira a sua etnia'
-        size_hint: 0.10, 0.10
-        pos: root.center_x - 3*(self.width/2), root.center_y - (self.height/2)
+        id: input_sexo
+        hint_text:'Insira o seu sexo'
+        size_hint: 0.15, 0.0725 
+        pos: input_name.right - self.width, input_idade.center_y - (self.height/2)
+        multiline: False
+        font_size: self.height*0.6
+        background_color: 1, 1, 1, 1
+        cursor_color: 0, 0, 0, 1
+        padding_x: 20
         on_text: app.process()
 
     Label:
-        id: label_etnia
-        text:'Etnia'
-        size_hint: 0.10, 0.10
-        pos: input_etnia.center_x - 100, root.center_y + (self.height/2)
-
+        id: label_sexo
+        text:'Sexo'
+        pos: input_sexo.right - input_sexo.width, input_sexo.top
+        color: (0,0,0,1)
+        size_hint: input_sexo.size_hint
+        font_size: self.height*0.6
+        text_size: self.size
+        halign: "left"
+        valign: "bottom"
+    
     TextInput:
         id: input_altura
         hint_text:'Insira a sua altura (cm)'
-        size_hint: 0.10, 0.10
-        pos: root.center_x - (self.width/2), root.center_y - (self.height/2)
+        size_hint: 0.10, 0.0725 
+        pos: input_name.right - input_name.width, root.center_y - 3*(self.height/2)
+        multiline: False
+        font_size: self.height*0.6
+        background_color: 1, 1, 1, 1
+        cursor_color: 0, 0, 0, 1
+        padding_x: 20
         on_text: app.process()
 
     Label:
         id: label_altura
         text:'Altura'
-        size_hint: 0.10, 0.10
-        pos: input_altura.center_x - 100, root.center_y + (self.height/2)
+        pos: input_altura.right - input_altura.width, input_altura.top
+        color: (0,0,0,1)
+        size_hint: input_altura.size_hint
+        font_size: self.height*0.6
+        text_size: self.size
+        halign: "left"
+        valign: "bottom"
         
     TextInput:
         id: input_peso
         hint_text:'Insira o seu peso (gramas)'
-        size_hint: 0.10, 0.10
-        pos: root.center_x + (self.width/2), root.center_y - (self.height/2)
+        size_hint: 0.15, 0.0725 
+        pos: input_name.right - self.width, input_altura.center_y - (self.height/2)
+        multiline: False
+        font_size: self.height*0.6
+        background_color: 1, 1, 1, 1
+        cursor_color: 0, 0, 0, 1
+        padding_x: 20
         on_text: app.process()
 
     Label:
         id: label_peso
         text:'Peso'
-        size_hint: 0.10, 0.10
-        pos: label_peso.center_x - (self.width/2), root.center_y + (self.height/2)
+        pos: input_peso.right - input_peso.width, input_peso.top
+        color: (0,0,0,1)
+        size_hint: input_peso.size_hint
+        font_size: self.height*0.6
+        text_size: self.size
+        halign: "left"
+        valign: "bottom"
+
+    TextInput:
+        id: input_etnia
+        hint_text:'Insira a sua etnia'
+        size_hint: 0.30, 0.0725 
+        pos: root.center_x - 3*(self.width/2), root.center_y - 7*(self.height/2)
+        multiline: False
+        font_size: self.height*0.6
+        background_color: 1, 1, 1, 1
+        cursor_color: 0, 0, 0, 1
+        padding_x: 20
+        on_text: app.process()
+
+    Label:
+        id: label_etnia
+        text:'Etnia'
+        pos: input_etnia.right - input_etnia.width, input_etnia.top
+        color: (0,0,0,1)
+        size_hint: input_etnia.size_hint
+        font_size: self.height*0.6
+        text_size: self.size
+        halign: "left"
+        valign: "bottom"
