@@ -6,6 +6,16 @@ from math import pi, sin, cos
 
 from direct.task import Task
 
+from panda3d.core import loadPrcFileData 
+
+ConfigData = """
+window-title Scanner3D
+win-size 960 540
+background-color 0.41 0.41 0.41 0.0
+icon-filename Btn_Voltar.png
+"""
+
+loadPrcFileData("",ConfigData) 
 
 class PandaApp(ShowBase):
     def __init__(self):
@@ -24,7 +34,7 @@ class PandaApp(ShowBase):
         # Apply scale and position transforms on the model.
         self.manequim.setHpr(0,90,0) 
         self.manequim.setScale(0.3, 0.3, 0.3)
-        self.manequim.setPos(0, 0, 0)
+        self.manequim.setPos(0, 0, 1)
         
         # Add the spinCameraTask procedure to the task manager.
         self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")

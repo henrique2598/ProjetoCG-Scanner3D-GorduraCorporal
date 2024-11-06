@@ -1,16 +1,17 @@
+import kivy
 from panda3d_kivy.app import App
-from kivy.uix.button import Button
+from kivy.uix.widget import Widget
+
+from kivy.core.window           import Window
+
+kivy.require('2.3.0')
+
+
+
+# Declara a Tela do Software
+class TelaSoftware(Widget):
+    pass
 
 class Example(App):
     def build(self):
-        return Button(text='Hello, world!', size_hint= (0.233, 0.0786))
-'''
-            Button:
-        id: Btn_Iniciar
-        size_hint: 0.233, 0.0786
-        pos: root.center_x - (self.width/2), root.center_y - (self.height/2)
-        text:"Iniciar"
-        on_release:
-            root.manager.transition.direction = 'left'
-            root.manager.current = 'software'
-'''
+        return TelaSoftware()
