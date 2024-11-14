@@ -2,164 +2,6 @@
 
 #Widgets
 <TelaSoftware>:
-    canvas.before:
-        Color:
-            rgba: 1, 1, 1, 0    # white
-        Rectangle:
-            size: self.width, self.height
-
-    canvas:
-        Color:
-            rgba: (0,1,0,0.25)
-        RoundedRectangle:
-            size : 0.9*root.width, 0.25*self.height
-            pos : root.center_x - (0.9*self.width/2), root.center_y - 3.7*(0.25*self.height/2)
-            radius: [(40, 40), (40, 40), (40, 40), (40, 40)]
-    
-    
-    TextInput:
-        id: input_name
-        hint_text:'Insira o seu nome'
-        size: 0.25*root.width, 0.0725*root.height
-        pos: root.center_x - (0.9*root.width/2)+ 0.025*root.width, root.center_y - 3.5*(0.25*root.height/2) + 0.125*root.width/2
-        multiline: False
-        font_size: self.height*0.6
-        background_color: 1, 1, 1, 1
-        cursor_color: 0, 0, 0, 1
-        padding_x: 20
-        input_type: 'text'
-
-    Label:
-        id: label_name
-        text:'Nome'
-        pos: input_name.right - input_name.width, input_name.top
-        color: (0,0,0,1)
-        size_hint: input_name.size_hint
-        font_size: self.height*0.25
-        text_size: self.size
-        halign: "left"
-        valign: "bottom"
-
-    TextInput:
-        id: input_idade
-        hint_text:'Insira a sua idade'
-        size: 0.25*root.width, 0.0725*root.height
-        pos: input_name.right + 0.01*root.width, input_name.top - self.height
-        multiline: False
-        font_size: self.height*0.6
-        background_color: 1, 1, 1, 1
-        cursor_color: 0, 0, 0, 1
-        padding_x: 20
-        input_type: 'number'
-
-    Label:
-        id: label_idade
-        text:'Idade'
-        pos: input_idade.right - input_idade.width, input_idade.top
-        color: (0,0,0,1)
-        size_hint: input_idade.size_hint
-        font_size: self.height*0.25
-        text_size: self.size
-        halign: "left"
-        valign: "bottom"
-
-    Spinner:
-        id: input_sexo
-        text:'Insira o seu sexo'
-        size: 0.25*root.width, 0.0725*root.height
-        pos: input_idade.right + 0.01*root.width, input_idade.top - self.height
-        multiline: False
-        font_size: self.height*0.6
-        background_color: 1, 1, 1, 1
-        cursor_color: 0, 0, 0, 1
-        padding_x: 20
-        values: ["Masculino", "Feminino"]
-
-    Label:
-        id: label_sexo
-        text:'Sexo'
-        pos: input_sexo.right - input_sexo.width, input_sexo.top
-        color: (0,0,0,1)
-        size_hint: input_sexo.size_hint
-        font_size: self.height*0.25
-        text_size: self.size
-        halign: "left"
-        valign: "bottom"
-
-    Spinner:
-        id: input_etnia
-        text:'Insira a sua etnia'
-        size: 0.25*root.width, 0.0725*root.height
-        pos: input_name.right - self.width, input_name.top - 2.75*self.height
-        multiline: False
-        font_size: self.height*0.6
-        background_color: 1, 1, 1, 1
-        cursor_color: 0, 0, 0, 1
-        padding_x: 20
-        values: ["Etnia1", "Etnia2", "Etnia3", "Etnia4", "Etnia5"]
-
-    Label:
-        id: label_etnia
-        text:'Etnia'
-        pos: input_etnia.right - input_etnia.width, input_etnia.top
-        color: (0,0,0,1)
-        size_hint: input_etnia.size_hint
-        font_size: self.height*0.25
-        text_size: self.size
-        halign: "left"
-        valign: "bottom"
-
-    TextInput:
-        id: input_peso
-        hint_text:'Insira o seu peso (g)'
-        size: 0.25*root.width, 0.0725*root.height
-        pos: input_etnia.right + 0.01*root.width, input_etnia.top - self.height
-        multiline: False
-        font_size: self.height*0.6
-        background_color: 1, 1, 1, 1
-        cursor_color: 0, 0, 0, 1
-        padding_x: 20
-        input_type: 'number'
-
-    Label:
-        id: label_peso
-        text:'Peso'
-        pos: input_peso.right - input_peso.width, input_peso.top
-        color: (0,0,0,1)
-        size_hint: input_peso.size_hint
-        font_size: self.height*0.25
-        text_size: self.size
-        halign: "left"
-        valign: "bottom"
-    
-    TextInput:
-        id: input_altura
-        hint_text:'Insira a sua altura (cm)'
-        size: 0.25*root.width, 0.0725*root.height
-        pos: input_peso.right + 0.01*root.width, input_peso.top - self.height
-        multiline: False
-        font_size: self.height*0.6
-        background_color: 1, 1, 1, 1
-        cursor_color: 0, 0, 0, 1
-        padding_x: 20
-        input_type: 'number'
-
-    Label:
-        id: label_altura
-        text:'Altura'
-        pos: input_altura.right - input_altura.width, input_altura.top
-        color: (0,0,0,1)
-        size_hint: input_altura.size_hint
-        font_size: self.height*0.25
-        text_size: self.size
-        halign: "left"
-        valign: "bottom"
-        
-
-    
-
-
-
     Image:
         id: logo
         size: 100, 100
@@ -169,7 +11,7 @@
         id: button_instrucoes
         text: "Instruções"
         pos: logo.right, root.top-100
-        on_press: root.abrePopUpCadastro()
+        on_press: root.abrePopUpInstrucoes()
     Button:
         id: button_dados
         text: "Preencher Dados"
@@ -186,12 +28,7 @@
         pos: button_modelo.right, root.top-100
 
 
-<PopUpCadastro>
-    size_hint: 0.9,0.9
-    auto_dismiss:True
-    title: 'Popup 1'
-    id:mypopup1
-    orientation: "vertical"
+<PopUpInstrucoes>
     BoxLayout:
         id: header1
         orientation:'vertical'
@@ -206,12 +43,27 @@
                 pos : root.center_x - (0.9*self.width/2), root.center_y - 3.7*(0.25*self.height/2)
                 radius: [(40, 40), (40, 40), (40, 40), (40, 40)]
         
+
+
+
+
+
+<PopUpCadastro>
+    FloatLayout:
+        id: FloatLayout_Cadastro
+        canvas:
+            Color:
+                rgba: (0,1,0,0.25)
+            RoundedRectangle:
+                size : root.width, root.height
+                pos : root.center_x - (root.width/2), root.center_y - (root.height/2)
+                radius: [(40, 40), (40, 40), (40, 40), (40, 40)]
         
         TextInput:
             id: input_name
             hint_text:'Insira o seu nome'
-            size: 0.25*root.width, 0.0725*root.height
-            pos: root.center_x - (0.9*root.width/2)+ 0.025*root.width, root.center_y - 3.5*(0.25*root.height/2) + 0.125*root.width/2
+            size_hint: 0.500, 1
+            pos : root.center_x - (self.width/2), root.center_y - (self.height/2)
             multiline: False
             font_size: self.height*0.6
             background_color: 1, 1, 1, 1

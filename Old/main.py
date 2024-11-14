@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Imports
-from Assets.Telas               import *
+from Old.Telas               import *
 import kivy
 from kivy.app                   import App
 from kivy.core.audio            import SoundLoader
