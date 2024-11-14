@@ -153,20 +153,30 @@
         halign: "left"
         valign: "bottom"
         
-    Button:
-        id: button_calcular
-        text: "Calcular"
-        pos: root.center_x, root.center_y
 
+    
+
+
+
+    Image:
+        id: logo
+        size: 100, 100
+        pos: 0, root.top-100
+        source: 'Assets\img\Btn_Voltar.png'
+    Button:
+        id: button_instrucoes
+        text: "Instruções"
+        pos: logo.right, root.top-100
+    Button:
+        id: button_dados
+        text: "Preencher Dados"
+        pos: button_instrucoes.right, root.top-100
+    Button:
+        id: button_modelo
+        text: "Carregar Modelo 3D"
+        pos: button_dados.right, root.top-100
+        on_press: root.select_file()
     Button:
         id: button_relatório
         text: "Gerar Relatório"
-        pos: root.center_x - 100, root.center_y
-        
-    Button:
-        id: button_refazer
-        text: "Refazer Captura"
-        pos: root.center_x+100, root.center_y
-
-
-
+        pos: button_modelo.right, root.top-100

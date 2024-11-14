@@ -9,6 +9,7 @@ Utilizar o Ambiente Virtual presente no projeto
 -> Tutorial 2: https://www.youtube.com/watch?v=m1TYpvIYm74
 ->
 -> Tutorial 4: https://snyk.io/advisor/python/panda3d-kivy
+-> Tutorial 5: https://www.youtube.com/watch?v=TMlvEBYjIX0 
 
 
 Instalações realizadas:
@@ -16,3 +17,4 @@ Instalações realizadas:
 - pip install "kivy[full]" kivy_examples
 - pip install panda3d==1.10.14
 - pip install panda3d-kivy
+- pip install plyer
