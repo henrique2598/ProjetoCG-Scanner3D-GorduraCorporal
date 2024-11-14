@@ -63,9 +63,9 @@
         halign: "left"
         valign: "bottom"
 
-    TextInput:
+    Spinner:
         id: input_sexo
-        hint_text:'Insira o seu sexo'
+        text:'Insira o seu sexo'
         size: 0.25*root.width, 0.0725*root.height
         pos: input_idade.right + 0.01*root.width, input_idade.top - self.height
         multiline: False
@@ -73,6 +73,7 @@
         background_color: 1, 1, 1, 1
         cursor_color: 0, 0, 0, 1
         padding_x: 20
+        values: ["Masculino", "Feminino"]
 
     Label:
         id: label_sexo
@@ -85,9 +86,9 @@
         halign: "left"
         valign: "bottom"
 
-    TextInput:
+    Spinner:
         id: input_etnia
-        hint_text:'Insira a sua etnia'
+        text:'Insira a sua etnia'
         size: 0.25*root.width, 0.0725*root.height
         pos: input_name.right - self.width, input_name.top - 2.75*self.height
         multiline: False
@@ -95,6 +96,7 @@
         background_color: 1, 1, 1, 1
         cursor_color: 0, 0, 0, 1
         padding_x: 20
+        values: ["Etnia1", "Etnia2", "Etnia3", "Etnia4", "Etnia5"]
 
     Label:
         id: label_etnia
@@ -180,3 +182,5 @@
         id: button_relatório
         text: "Gerar Relatório"
         pos: button_modelo.right, root.top-100
+
+
