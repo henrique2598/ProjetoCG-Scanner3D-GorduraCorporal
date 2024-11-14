@@ -10,6 +10,7 @@ Utilizar o Ambiente Virtual presente no projeto
 ->
 -> Tutorial 4: https://snyk.io/advisor/python/panda3d-kivy
 -> Tutorial 5: https://www.youtube.com/watch?v=TMlvEBYjIX0 
+-> Tutorial 6: https://www.youtube.com/watch?v=Wu7kTFZtM6I&list=PLCC34OHNcOtpz7PJQ7Tv7hqFBP_xDDjqg&index=32
 
 
 Instalações realizadas:

@@ -7,6 +7,13 @@ from plyer import filechooser
 kivy.require('2.3.0')
 
 
+from kivy.uix.popup import Popup
+
+class PopUpCadastro(Popup):
+    pass
+
+    
+
 
 # Declara a Tela do Software
 class TelaSoftware(Widget):
@@ -18,6 +25,11 @@ class TelaSoftware(Widget):
 
     def spinner_clicked(self, value):
         pass
+
+    def abrePopUpCadastro(self):
+        PopUpWindow = Popup(title = 'Preencha o seu cadastro' ,content = PopUpCadastro(),size_hint = (0.9,0.9))
+        PopUpWindow.open()
+        
 
 
 class Example(App):
