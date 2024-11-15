@@ -13,7 +13,14 @@ class PopUpInstrucoes(Widget):
     pass
 
 class PopUpCadastro(Widget):
-    pass
+    def SalvaDadosCadastro(self):
+        print(self.ids.input_name.text)
+        print(self.ids.input_idade.text)
+        print(self.ids.input_peso.text)
+        print(self.ids.input_altura.text)
+        print(self.ids.input_sexo.text)
+        print(self.ids.input_etnia.text)
+
 
 # Declara a Tela do Software
 class TelaSoftware(Widget):
@@ -27,12 +34,13 @@ class TelaSoftware(Widget):
         pass
     
     def abrePopUpInstrucoes(self):
-        PopUpWindow = Popup(title = 'Confira a instruções' ,content = PopUpInstrucoes(),size_hint = (0.9,0.9))
+        PopUpWindow = Popup(title = 'Confira a instruções', content = PopUpInstrucoes(), size_hint=(None, None), size=(960, 540))
         PopUpWindow.open()
         
     def abrePopUpCadastro(self):
-        PopUpWindow = Popup(title = 'Preencha o seu cadastro' ,content = PopUpCadastro(),size_hint = (0.9,0.9))
+        PopUpWindow = Popup(title = 'Preencha o seu cadastro', content = PopUpCadastro(), size_hint=(None, None), size=(960, 540))
         PopUpWindow.open()
+    
 
 
 
