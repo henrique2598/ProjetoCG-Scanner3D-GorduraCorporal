@@ -29,6 +29,9 @@ class TelaSoftware(Widget):
     
     def selected(self, selection):
         print(selection[0])
+    
+    def gerar_relatorio(self):
+        pass
 
     def spinner_clicked(self, value):
         pass
