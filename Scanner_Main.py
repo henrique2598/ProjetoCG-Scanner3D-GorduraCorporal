@@ -2,7 +2,10 @@ from direct.showbase.ShowBase import ShowBase
 from Scanner_KivyAPP import *
 from math import pi, sin, cos
 from direct.task import Task
-from panda3d.core import loadPrcFileData 
+from panda3d.core import loadPrcFileData
+from direct.gui.DirectGui import *
+from plyer import filechooser
+
 
 ConfigData = """
 window-title Scanner3D
@@ -20,21 +23,8 @@ class PandaApp(ShowBase):
         self.kivy_app = kivy_app = Scanner_KivyAPP(self)
         kivy_app.run()
 
-        # The rest of your ShowBase code here
-        # Load the environment model.
-        self.manequim = self.loader.loadModel("Assets/Modelos3D/manequim.obj")
-        # Reparent the model to render.
-        self.manequim.reparentTo(self.render)
-        # Apply scale and position transforms on the model.
-        self.manequim.setHpr(0,90,0) 
-        self.manequim.setScale(0.3, 0.3, 0.3)
-        self.manequim.setPos(0, 0, 0)
-        
         # Add the spinCameraTask procedure to the task manager.
         self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
-
-
-
 
     # Define a procedure to move the camera.
     def spinCameraTask(self, task):
@@ -44,10 +34,32 @@ class PandaApp(ShowBase):
         self.camera.setHpr(angleDegrees, 0, 0)
         return Task.cont
 
+    def loadModel(self):
+        try:
+            self.manequim.removeNode()
+        except:
+            pass
 
+        ModelPath = filechooser.open_file()[0]
+        print(ModelPath)
+        ModelPath = ModelPath[ModelPath.find('Assets'):]
+        print(ModelPath)
 
-
+        # The rest of your ShowBase code here
+        # Load the environment model.
+        self.manequim = self.loader.loadModel(ModelPath)
+        # Reparent the model to render.
+        self.manequim.reparentTo(self.render)
+        # Apply scale and position transforms on the model.
+        self.manequim.setHpr(0,90,0) 
+        self.manequim.setScale(0.3, 0.3, 0.3)
+        self.manequim.setPos(0, 0, 0)
 
 app = PandaApp()
-app.run()
 
+btn_loadmodel = DirectButton(text = "Inserir Modelo 3D",
+                   command = app.loadModel,
+                   pos = (-0.3, 0, -0.2),
+                   scale = 0.07)
+
+app.run()

@@ -2,8 +2,6 @@ import kivy
 from panda3d_kivy.app import App
 from kivy.uix.widget import Widget
 
-from plyer import filechooser
-
 kivy.require('2.3.0')
 
 
@@ -60,12 +58,6 @@ class TelaSoftware(Widget):
         self.sexo = ""
         self.etnia = ""
         self.volumeModelo3D = 0
-
-    def select_file(self):
-        filechooser.open_file(on_selection = self.selected)
-    
-    def selected(self, selection):
-        print(selection[0])
 
     def abrePopUpInstrucoes(self):
         self.PopUpWindow_Instrucoes.open()
