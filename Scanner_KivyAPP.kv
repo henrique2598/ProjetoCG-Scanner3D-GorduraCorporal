@@ -32,6 +32,66 @@
         size: self.texture_size[0] + dp(10), 100
         on_press: root.gerar_relatorio()
 
+    Label:
+        id: label_inicio_nome
+        text: "Nome: " + str(root.nome)
+        pos: (logo.width/2), logo.top-logo.height - 1.5*self.height
+        color: (0,0,0,1)
+        font_size: 25
+        size_hint: None, None
+        size: self.texture_size
+        halign: "left"
+        valign: "bottom"
+    Label:
+        id: label_inicio_idade
+        text: "Idade: " + str(root.idade)
+        pos: label_inicio_nome.right - label_inicio_nome.width, label_inicio_nome.top - label_inicio_nome.height - 1.5*self.height
+        color: (0,0,0,1)
+        font_size: 25
+        size_hint: None, None
+        size: self.texture_size
+        halign: "left"
+        valign: "bottom"
+    Label:
+        id: label_inicio_peso
+        text: "Peso: " + str(root.peso)
+        pos: label_inicio_idade.right - label_inicio_idade.width, label_inicio_idade.top - label_inicio_idade.height - 1.5*self.height
+        color: (0,0,0,1)
+        font_size: 25
+        size_hint: None, None
+        size: self.texture_size
+        halign: "left"
+        valign: "bottom"
+    Label:
+        id: label_inicio_altura
+        text: "Altura: " + str(root.altura)
+        pos: label_inicio_peso.right - label_inicio_peso.width, label_inicio_peso.top - label_inicio_peso.height - 1.5*self.height
+        color: (0,0,0,1)
+        font_size: 25
+        size_hint: None, None
+        size: self.texture_size
+        halign: "left"
+        valign: "bottom"
+    Label:
+        id: label_inicio_sexo
+        text: "Sexo: " + str(root.sexo)
+        pos: label_inicio_altura.right - label_inicio_altura.width, label_inicio_altura.top - label_inicio_altura.height - 1.5*self.height
+        color: (0,0,0,1)
+        font_size: 25
+        size_hint: None, None
+        size: self.texture_size
+        halign: "left"
+        valign: "bottom"
+    Label:
+        id: label_inicio_etnia
+        text: "Etnia: " + str(root.etnia)
+        pos: label_inicio_sexo.right - label_inicio_sexo.width, label_inicio_sexo.top - label_inicio_sexo.height - 1.5*self.height
+        color: (0,0,0,1)
+        font_size: 25
+        size_hint: None, None
+        size: self.texture_size
+        halign: "left"
+        valign: "bottom"
 
 <PopUpInstrucoes>
     FloatLayout:

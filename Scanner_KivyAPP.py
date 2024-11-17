@@ -22,10 +22,17 @@ class PopUpCadastro(Widget):
         App.get_running_app().root.etnia = self.ids.input_etnia.text
         App.get_running_app().root.PopUpWindow_Cadastro.dismiss()
 
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, NumericProperty
 
 # Declara a Tela do Software
 class TelaSoftware(Widget):
+    nome = StringProperty()
+    idade = NumericProperty()
+    peso = NumericProperty()
+    altura = NumericProperty()
+    sexo = StringProperty()
+    etnia = StringProperty()
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.PopUpWindow_Cadastro = Popup(title = 'Preencha o seu cadastro', content = PopUpCadastro(), size_hint=(None, None), size=(960, 540))
