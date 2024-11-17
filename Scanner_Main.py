@@ -65,7 +65,7 @@ app = PandaApp()
 
 btn_loadmodel = DirectButton(text = "Inserir Modelo 3D",
                    command = app.loadModel,
-                   pos = (0, 0, -0.75),
+                   pos = (0, 0, -0.9),
                    scale = 0.07)
 
 app.run()

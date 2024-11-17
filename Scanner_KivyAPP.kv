@@ -20,9 +20,15 @@
         size: self.texture_size[0] + dp(10), 100
         on_press: root.abrePopUpCadastro()
     Button:
+        id: button_modelo
+        text: "Carregar Modelo 3D"
+        pos: button_dados.right, root.top-100
+        size: self.texture_size[0] + dp(10), 100
+        on_press: root.select_file()
+    Button:
         id: button_relatório
         text: "Gerar Relatório"
-        pos: button_dados.right, root.top-100
+        pos: button_modelo.right, root.top-100
         size: self.texture_size[0] + dp(10), 100
         on_press: root.gerar_relatorio()
 
