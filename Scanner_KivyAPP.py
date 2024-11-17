@@ -21,6 +21,12 @@ class PopUpCadastro(Widget):
         App.get_running_app().root.sexo = self.ids.input_sexo.text
         App.get_running_app().root.etnia = self.ids.input_etnia.text
         App.get_running_app().root.PopUpWindow_Cadastro.dismiss()
+        self.ids.input_name.text = ""
+        self.ids.input_idade.text = ""
+        self.ids.input_peso.text = ""
+        self.ids.input_altura.text = ""
+        self.ids.input_sexo.text = ""
+        self.ids.input_etnia.text = ""
 
 from kivy.properties import StringProperty, NumericProperty
 
@@ -32,23 +38,41 @@ class TelaSoftware(Widget):
     altura = NumericProperty()
     sexo = StringProperty()
     etnia = StringProperty()
+    volumeModelo3D = NumericProperty()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.PopUpWindow_Cadastro = Popup(title = 'Preencha o seu cadastro', content = PopUpCadastro(), size_hint=(None, None), size=(960, 540))
+        self.PopUpWindow_Instrucoes = Popup(title = 'Confira a instruções', content = PopUpInstrucoes(), size_hint=(None, None), size=(960, 540))
         self.nome = ""
         self.idade = 0
         self.peso = 0
         self.altura = 0
         self.sexo = ""
         self.etnia = ""
+        self.volumeModelo3D = 0
 
     def select_file(self):
         filechooser.open_file(on_selection = self.selected)
     
     def selected(self, selection):
         print(selection[0])
-    
+
+    def abrePopUpInstrucoes(self):
+        self.PopUpWindow_Instrucoes.open()
+        
+    def abrePopUpCadastro(self):
+        self.PopUpWindow_Cadastro.open()
+
+    def limpar_dados(self):
+        self.nome = ""
+        self.idade = 0
+        self.peso = 0
+        self.altura = 0
+        self.sexo = ""
+        self.etnia = ""
+        self.volumeModelo3D = 0
+
     def gerar_relatorio(self):
         print(self.nome)
         print(self.idade)
@@ -57,15 +81,7 @@ class TelaSoftware(Widget):
         print(self.sexo)
         print(self.etnia)
 
-    def spinner_clicked(self, value):
-        pass
-    
-    def abrePopUpInstrucoes(self):
-        PopUpWindow_Instrucoes = Popup(title = 'Confira a instruções', content = PopUpInstrucoes(), size_hint=(None, None), size=(960, 540))
-        PopUpWindow_Instrucoes.open()
-        
-    def abrePopUpCadastro(self):
-        self.PopUpWindow_Cadastro.open()
+
     
 
 

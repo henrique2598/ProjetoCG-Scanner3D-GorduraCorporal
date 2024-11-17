@@ -44,7 +44,7 @@
         valign: "bottom"
     Label:
         id: label_inicio_idade
-        text: "Idade: " + str(root.idade)
+        text: "Idade: " + str(root.idade) + " anos"
         pos: label_inicio_nome.right - label_inicio_nome.width, label_inicio_nome.top - label_inicio_nome.height - 1.5*self.height
         color: (0,0,0,1)
         font_size: 25
@@ -54,7 +54,7 @@
         valign: "bottom"
     Label:
         id: label_inicio_peso
-        text: "Peso: " + str(root.peso)
+        text: "Peso: " + str(root.peso) + "g"
         pos: label_inicio_idade.right - label_inicio_idade.width, label_inicio_idade.top - label_inicio_idade.height - 1.5*self.height
         color: (0,0,0,1)
         font_size: 25
@@ -64,7 +64,7 @@
         valign: "bottom"
     Label:
         id: label_inicio_altura
-        text: "Altura: " + str(root.altura)
+        text: "Altura: " + str(root.altura) + "cm"
         pos: label_inicio_peso.right - label_inicio_peso.width, label_inicio_peso.top - label_inicio_peso.height - 1.5*self.height
         color: (0,0,0,1)
         font_size: 25
@@ -92,6 +92,22 @@
         size: self.texture_size
         halign: "left"
         valign: "bottom"
+    Label:
+        id: label_inicio_volume
+        text: "Volume Modelo 3D: " + str(root.volumeModelo3D)
+        pos: label_inicio_etnia.right - label_inicio_etnia.width, label_inicio_etnia.top - label_inicio_etnia.height - 1.5*self.height
+        color: (0,0,0,1)
+        font_size: 25
+        size_hint: None, None
+        size: self.texture_size
+        halign: "left"
+        valign: "bottom"
+    Button:
+        id: button_limpar
+        text: "Limpar Dados"
+        pos: label_inicio_volume.right - label_inicio_volume.width, label_inicio_volume.top - label_inicio_volume.height - 1.5*self.height
+        size: self.texture_size[0] + dp(10), self.texture_size[1] + dp(10)
+        on_press: root.limpar_dados()
 
 <PopUpInstrucoes>
     FloatLayout:
