@@ -44,7 +44,7 @@
         valign: "bottom"
     Label:
         id: label_inicio_idade
-        text: "Idade: " + str(root.idade) + " anos"
+        text: "Idade: " + str(root.idade_formatado)
         pos: label_inicio_nome.right - label_inicio_nome.width, label_inicio_nome.top - label_inicio_nome.height - 1.5*self.height
         color: (0,0,0,1)
         font_size: 25
@@ -54,7 +54,7 @@
         valign: "bottom"
     Label:
         id: label_inicio_peso
-        text: "Peso: " + str(root.peso) + "g"
+        text: "Peso: " + str(root.peso_formatado)
         pos: label_inicio_idade.right - label_inicio_idade.width, label_inicio_idade.top - label_inicio_idade.height - 1.5*self.height
         color: (0,0,0,1)
         font_size: 25
@@ -64,7 +64,7 @@
         valign: "bottom"
     Label:
         id: label_inicio_altura
-        text: "Altura: " + str(root.altura) + "cm"
+        text: "Altura: " + str(root.altura_formatado)
         pos: label_inicio_peso.right - label_inicio_peso.width, label_inicio_peso.top - label_inicio_peso.height - 1.5*self.height
         color: (0,0,0,1)
         font_size: 25
@@ -181,7 +181,7 @@
 
         TextInput:
             id: input_peso
-            hint_text:'Insira o seu peso (g)'
+            hint_text:'Insira o seu peso (kg ex: 56.7)'
             size_hint : 0.2, 0.15
             pos: input_name.center_x - (self.width/2), input_name.top - input_name.height - 1.5*self.height
             multiline: False
@@ -189,11 +189,11 @@
             background_color: 1, 1, 1, 1
             cursor_color: 0, 0, 0, 1
             padding_x: 20
-            input_filter: 'int'
+            input_filter: 'float'
 
         Label:
             id: label_peso
-            text:'Peso (g)'
+            text:'Peso (kg ex: 56.7)'
             pos: input_peso.right - input_peso.width, input_peso.top
             color: (0,0,0,1)
             size_hint: input_peso.size_hint

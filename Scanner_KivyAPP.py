@@ -13,11 +13,14 @@ class PopUpInstrucoes(Widget):
     pass
 
 class PopUpCadastro(Widget):
-    def SalvaDadosCadastro(self):
+    def SalvaDadosCadastro(self):        
         App.get_running_app().root.nome = self.ids.input_name.text
-        App.get_running_app().root.idade = self.ids.input_idade.text
-        App.get_running_app().root.peso = self.ids.input_peso.text
-        App.get_running_app().root.altura = self.ids.input_altura.text
+        App.get_running_app().root.idade = int(self.ids.input_idade.text)
+        App.get_running_app().root.idade_formatado = (self.ids.input_idade.text)+" anos"
+        App.get_running_app().root.peso = int(1000.0*float(self.ids.input_peso.text))
+        App.get_running_app().root.peso_formatado = str(self.ids.input_peso.text)+" kg"
+        App.get_running_app().root.altura = int(self.ids.input_altura.text)
+        App.get_running_app().root.altura_formatado = str(self.ids.input_altura.text)+" cm"
         App.get_running_app().root.sexo = self.ids.input_sexo.text
         App.get_running_app().root.etnia = self.ids.input_etnia.text
         App.get_running_app().root.PopUpWindow_Cadastro.dismiss()
@@ -36,6 +39,9 @@ class TelaSoftware(Widget):
     idade = NumericProperty()
     peso = NumericProperty()
     altura = NumericProperty()
+    idade_formatado = StringProperty()
+    peso_formatado = StringProperty()
+    altura_formatado = StringProperty()
     sexo = StringProperty()
     etnia = StringProperty()
     volumeModelo3D = NumericProperty()
@@ -48,6 +54,9 @@ class TelaSoftware(Widget):
         self.idade = 0
         self.peso = 0
         self.altura = 0
+        self.idade_formatado = ""
+        self.peso_formatado = ""
+        self.altura_formatado = ""
         self.sexo = ""
         self.etnia = ""
         self.volumeModelo3D = 0
@@ -69,6 +78,9 @@ class TelaSoftware(Widget):
         self.idade = 0
         self.peso = 0
         self.altura = 0
+        self.idade_formatado = ""
+        self.peso_formatado = ""
+        self.altura_formatado = ""
         self.sexo = ""
         self.etnia = ""
         self.volumeModelo3D = 0
