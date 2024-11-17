@@ -28,7 +28,7 @@ class PandaApp(ShowBase):
         # Apply scale and position transforms on the model.
         self.manequim.setHpr(0,90,0) 
         self.manequim.setScale(0.3, 0.3, 0.3)
-        self.manequim.setPos(0, 0, 1)
+        self.manequim.setPos(0, 0, 0)
         
         # Add the spinCameraTask procedure to the task manager.
         self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")

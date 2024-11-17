@@ -82,10 +82,6 @@ class TelaSoftware(Widget):
         print(self.etnia)
 
 
-    
-
-
-
 class Scanner_KivyAPP(App):
     def build(self):
         return TelaSoftware()
