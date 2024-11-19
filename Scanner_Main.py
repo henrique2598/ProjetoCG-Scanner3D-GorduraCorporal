@@ -1,5 +1,5 @@
 from direct.showbase.ShowBase import ShowBase
-from Scanner_KivyAPP import *
+from Assets.Códigos.Scanner_KivyAPP import *
 from math import pi, sin, cos
 from direct.task import Task
 from panda3d.core import loadPrcFileData

@@ -75,7 +75,11 @@ class TelaSoftware(Widget):
         self.altura_formatado = ""
         self.sexo = ""
         self.etnia = ""
-        self.volumeModelo3D = 0
+        #self.volumeModelo3D = 0
+
+    def select_file(self):
+        print(App.get_running_app())
+
 
     def gerar_relatorio(self):
         print(self.nome)
