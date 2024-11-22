@@ -43,6 +43,8 @@ class TelaSoftware(Widget):
     sexo = StringProperty()
     etnia = StringProperty()
     volumeModelo3D = NumericProperty()
+    gorduraCorporal = NumericProperty()
+    gorduraCorporal_formatado = StringProperty()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -58,6 +60,8 @@ class TelaSoftware(Widget):
         self.sexo = ""
         self.etnia = ""
         self.volumeModelo3D = 0
+        self.gorduraCorporal = 0
+        self.gorduraCorporal_formatado = ""
 
     def abrePopUpInstrucoes(self):
         self.PopUpWindow_Instrucoes.open()
@@ -75,19 +79,25 @@ class TelaSoftware(Widget):
         self.altura_formatado = ""
         self.sexo = ""
         self.etnia = ""
-        #self.volumeModelo3D = 0
+        self.gorduraCorporal = 0
+        self.gorduraCorporal_formatado = ""
 
     def select_file(self):
         print(App.get_running_app())
 
+    def calcular_gordura(self):
+        self.gorduraCorporal = 75.25
+        self.gorduraCorporal_formatado = "75,25%"
 
     def gerar_relatorio(self):
+        self.calcular_gordura()
         print(self.nome)
         print(self.idade)
         print(self.peso)
         print(self.altura)
         print(self.sexo)
         print(self.etnia)
+        print(self.gorduraCorporal)
 
 
 class Scanner_KivyAPP(App):
