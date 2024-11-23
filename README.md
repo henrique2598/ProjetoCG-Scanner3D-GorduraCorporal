@@ -19,3 +19,4 @@ Instalações realizadas:
 - pip install panda3d==1.10.14
 - pip install panda3d-kivy
 - pip install plyer
+- pip install Jinja2

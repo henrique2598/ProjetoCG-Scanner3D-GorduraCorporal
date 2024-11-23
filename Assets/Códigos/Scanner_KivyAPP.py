@@ -99,7 +99,6 @@ class TelaSoftware(Widget):
         print(self.etnia)
         print(self.gorduraCorporal)
 
-
 class Scanner_KivyAPP(App):
     def build(self):
         return TelaSoftware()

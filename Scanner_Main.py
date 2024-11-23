@@ -35,7 +35,9 @@ class PandaApp(ShowBase):
         return Task.cont
 
     def processModel(self, Manequim):
-        print("Calculando Volume")
+        print("Selecionando o manequim")
+        print("Reconstruindo o manequim")
+        print("Calculando o volume do manequim")
         App.get_running_app().root.volumeModelo3D = 10
 
 
