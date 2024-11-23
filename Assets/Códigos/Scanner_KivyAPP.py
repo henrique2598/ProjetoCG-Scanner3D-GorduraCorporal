@@ -7,6 +7,10 @@ kivy.require('2.3.0')
 
 from kivy.uix.popup import Popup
 
+
+from jinja2 import Template
+
+
 class PopUpInstrucoes(Widget):
     pass
 
@@ -45,6 +49,29 @@ class TelaSoftware(Widget):
     volumeModelo3D = NumericProperty()
     gorduraCorporal = NumericProperty()
     gorduraCorporal_formatado = StringProperty()
+    
+    # Cria um template
+    template = Template("""
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resultado - {{ nome }}</title>
+</head>
+<body>
+
+<h1>Gordura Corporal</h1>
+
+<p>Nome: {{ nome }} </p>
+<p>Idade: {{ idade }} </p>
+<p>Peso: {{ peso }} </p>
+<p>Altura: {{ altura }} </p>
+<p>Sexo: {{ sexo }} </p>
+<p>Etnia: {{ etnia }} </p>
+<p>Gordura Corporal: {{ gordura_corporal }} </p>
+
+</body>
+</html>
+""")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -92,19 +119,8 @@ class TelaSoftware(Widget):
     def gerar_relatorio(self):
         self.calcular_gordura()
 
-        from jinja2 import Template
-
-        # Cria um template
-        template = Template("""Nome: {{ nome }};
-                            Idade: {{ idade }};
-                            Peso: {{ peso }};
-                            Altura: {{ altura }};
-                            Sexo: {{ sexo }};
-                            Etnia: {{ etnia }};
-                            Gordura Corporal: {{ gordura_corporal }}""")
-
         # Renderiza o template com os dados
-        output = template.render(nome=self.nome,
+        output = self.template.render(nome=self.nome,
                                  idade=self.idade_formatado,
                                  peso=self.peso_formatado,
                                  altura=self.altura_formatado,
@@ -112,8 +128,9 @@ class TelaSoftware(Widget):
                                  etnia=self.etnia,
                                  gordura_corporal=self.gorduraCorporal)
 
-        # Imprime o resultado
-        print(output)
+        # Salva o resultado
+        with open('Resultado.html', 'w') as f:
+            f.write(output)
 
 class Scanner_KivyAPP(App):
     def build(self):
