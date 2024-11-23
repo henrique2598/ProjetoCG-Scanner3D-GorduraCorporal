@@ -91,13 +91,29 @@ class TelaSoftware(Widget):
 
     def gerar_relatorio(self):
         self.calcular_gordura()
-        print(self.nome)
-        print(self.idade)
-        print(self.peso)
-        print(self.altura)
-        print(self.sexo)
-        print(self.etnia)
-        print(self.gorduraCorporal)
+
+        from jinja2 import Template
+
+        # Cria um template
+        template = Template("""Nome: {{ nome }};
+                            Idade: {{ idade }};
+                            Peso: {{ peso }};
+                            Altura: {{ altura }};
+                            Sexo: {{ sexo }};
+                            Etnia: {{ etnia }};
+                            Gordura Corporal: {{ gordura_corporal }}""")
+
+        # Renderiza o template com os dados
+        output = template.render(nome=self.nome,
+                                 idade=self.idade_formatado,
+                                 peso=self.peso_formatado,
+                                 altura=self.altura_formatado,
+                                 sexo=self.sexo,
+                                 etnia=self.etnia,
+                                 gordura_corporal=self.gorduraCorporal)
+
+        # Imprime o resultado
+        print(output)
 
 class Scanner_KivyAPP(App):
     def build(self):
