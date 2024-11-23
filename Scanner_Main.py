@@ -44,22 +44,49 @@ class PandaApp(ShowBase):
         try:
             self.manequim.removeNode()
         except:
-            pass
+            print("Nenhum manequim carregado")
 
-        ModelPath = filechooser.open_file()[0]
-        ModelPath = ModelPath[ModelPath.find('Assets'):]
+        try:
+            ModelPath = filechooser.open_file()[0]
+            ModelPath = ModelPath[ModelPath.find('Assets'):]
 
-        # The rest of your ShowBase code here
-        # Load the environment model.
-        self.manequim = self.loader.loadModel(ModelPath)
-        # Reparent the model to render.
-        self.manequim.reparentTo(self.render)
-        # Apply scale and position transforms on the model.
-        self.manequim.setHpr(0,90,0) 
-        self.manequim.setScale(0.3, 0.3, 0.3)
-        self.manequim.setPos(0, 0, 0)
+            try: 
+                # The rest of your ShowBase code here
+                # Load the environment model.
+                self.manequim = self.loader.loadModel(ModelPath)
+                # Reparent the model to render.
+                self.manequim.reparentTo(self.render)
 
-        self.processModel(self.manequim)
+                try:
+                    # Set model texture.
+                    TexturePath = ModelPath[:-3] + 'jpg'
+                    tex = self.loader.loadTexture(TexturePath)
+                    self.manequim.setTexture(tex, 1)
+
+                except:
+                    try:
+                        # Set model texture.
+                        TexturePath = ModelPath[:-3] + 'png'
+                        tex = self.loader.loadTexture(TexturePath)
+                        self.manequim.setTexture(tex, 1)
+
+                    except:
+                        print("Não foi possível carregar a textura")
+
+                # Apply scale and position transforms on the model.
+                self.manequim.setHpr(0,90,0) 
+                self.manequim.setScale(0.3, 0.3, 0.3)
+                self.manequim.setPos(0, 0, 0)
+
+                self.processModel(self.manequim)
+
+            except:
+                print("Não foi possível carregar o modelo selecionado")
+
+        except:
+            print("Não foi possível selecionar o modelo")
+
+
 
 app = PandaApp()
 
