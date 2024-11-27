@@ -76,9 +76,9 @@ class PandaApp(ShowBase):
                         print("Não foi possível carregar a textura")
 
                 # Apply scale and position transforms on the model.
-                self.manequim.setHpr(0,90,0) 
-                self.manequim.setScale(0.3, 0.3, 0.3)
-                self.manequim.setPos(0, 0, 0)
+                self.manequim.setHpr(0,0,90) 
+                self.manequim.setScale(0.005, 0.005, 0.005)
+                self.manequim.setPos(0, 0, 7)
 
                 self.processModel(self.manequim)
 
