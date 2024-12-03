@@ -4,6 +4,7 @@ from kivy.uix.widget import Widget
 
 kivy.require('2.3.0')
 
+from kivy.properties import StringProperty, NumericProperty
 
 from kivy.uix.popup import Popup
 
@@ -32,8 +33,6 @@ class PopUpCadastro(Widget):
         self.ids.input_altura.text = ""
         self.ids.input_sexo.text = ""
         self.ids.input_etnia.text = ""
-
-from kivy.properties import StringProperty, NumericProperty
 
 # Declara a Tela do Software
 class TelaSoftware(Widget):
@@ -129,7 +128,7 @@ class TelaSoftware(Widget):
                                  gordura_corporal=self.gorduraCorporal)
 
         # Salva o resultado
-        with open('Resultado.html', 'w') as f:
+        with open('Outputs/Resultado.html', 'w') as f:
             f.write(output)
 
 class Scanner_KivyAPP(App):

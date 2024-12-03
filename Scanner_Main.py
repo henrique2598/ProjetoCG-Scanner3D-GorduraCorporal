@@ -11,7 +11,7 @@ ConfigData = """
 window-title Scanner3D
 win-size 960 540
 background-color 0.41 0.41 0.41 0.0
-icon-filename Btn_Voltar.png
+icon-filename Assets/Imagens/logo.png
 """
 
 loadPrcFileData("",ConfigData) 
