@@ -12,6 +12,33 @@ from kivy.uix.popup import Popup
 from jinja2 import Template
 
 
+import os
+
+path_relatorio = 'Outputs/'
+
+# Cria um template
+template = Template("""
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resultado - {{ nome }}</title>
+</head>
+<body>
+
+<h1>Gordura Corporal</h1>
+
+<p>Nome: {{ nome }} </p>
+<p>Idade: {{ idade }} </p>
+<p>Peso: {{ peso }} </p>
+<p>Altura: {{ altura }} </p>
+<p>Sexo: {{ sexo }} </p>
+<p>Etnia: {{ etnia }} </p>
+<p>Gordura Corporal: {{ gordura_corporal }} </p>
+
+</body>
+</html>
+""")
+
 class PopUpInstrucoes(Widget):
     pass
 
@@ -49,28 +76,6 @@ class TelaSoftware(Widget):
     gorduraCorporal = NumericProperty()
     gorduraCorporal_formatado = StringProperty()
     
-    # Cria um template
-    template = Template("""
-<!DOCTYPE html>
-<html>
-<head>
-<title>Resultado - {{ nome }}</title>
-</head>
-<body>
-
-<h1>Gordura Corporal</h1>
-
-<p>Nome: {{ nome }} </p>
-<p>Idade: {{ idade }} </p>
-<p>Peso: {{ peso }} </p>
-<p>Altura: {{ altura }} </p>
-<p>Sexo: {{ sexo }} </p>
-<p>Etnia: {{ etnia }} </p>
-<p>Gordura Corporal: {{ gordura_corporal }} </p>
-
-</body>
-</html>
-""")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -119,7 +124,7 @@ class TelaSoftware(Widget):
         self.calcular_gordura()
 
         # Renderiza o template com os dados
-        output = self.template.render(nome=self.nome,
+        output = template.render(nome=self.nome,
                                  idade=self.idade_formatado,
                                  peso=self.peso_formatado,
                                  altura=self.altura_formatado,
@@ -128,7 +133,10 @@ class TelaSoftware(Widget):
                                  gordura_corporal=self.gorduraCorporal)
 
         # Salva o resultado
-        with open('Outputs/Resultado.html', 'w') as f:
+        if not os.path.exists(path_relatorio):
+            os.makedirs(path_relatorio)
+
+        with open(path_relatorio+'Resultado - '+str(self.nome)+'.html', 'w') as f:
             f.write(output)
 
 class Scanner_KivyAPP(App):
