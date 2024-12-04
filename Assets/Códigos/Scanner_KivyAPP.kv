@@ -7,6 +7,11 @@
         size: 100, 100
         pos: 0, root.top-100
         source: 'Assets\Imagens\logo.png'
+    Image:
+        id: logo_UFABC
+        size: 100, 100
+        pos: root.width-100, root.top-100
+        source: 'Assets\Imagens\logo-Ufabc.png'
     Button:
         id: button_instrucoes
         text: "Instruções"
@@ -112,7 +117,7 @@
     Label:
         id: label_inicio_gordura_text
         text: "Gordura Corporal:"
-        pos: root.width - 1.5*self.width, root.height - 2.5*self.height
+        pos: root.width - 1.5*self.width, logo.top-logo.height - 1.5*self.height
         color: (0,0,0,1)
         font_size: 25
         size_hint: None, None
