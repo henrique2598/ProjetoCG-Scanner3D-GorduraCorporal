@@ -73,6 +73,7 @@ class TelaSoftware(Widget):
     sexo = StringProperty()
     etnia = StringProperty()
     volumeModelo3D = NumericProperty()
+    volumeModelo3D_formatado = StringProperty()
     gorduraCorporal = NumericProperty()
     gorduraCorporal_formatado = StringProperty()
     
@@ -91,6 +92,7 @@ class TelaSoftware(Widget):
         self.sexo = ""
         self.etnia = ""
         self.volumeModelo3D = 0
+        self.volumeModelo3D_formatado = ""
         self.gorduraCorporal = 0
         self.gorduraCorporal_formatado = ""
 
@@ -145,7 +147,7 @@ class TelaSoftware(Widget):
                                  altura=self.altura_formatado,
                                  sexo=self.sexo,
                                  etnia=self.etnia,
-                                 gordura_corporal=self.gorduraCorporal)
+                                 gordura_corporal=self.gorduraCorporal_formatado)
 
         # Salva o resultado
         if not os.path.exists(path_relatorio):
