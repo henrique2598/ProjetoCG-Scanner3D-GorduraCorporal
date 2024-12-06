@@ -39,6 +39,7 @@ class PandaApp(ShowBase):
         print("Reconstruindo o manequim")
         print("Calculando o volume do manequim")
         App.get_running_app().root.volumeModelo3D = 75729
+        App.get_running_app().root.volumeModelo3D_formatado = "75729 unidade"
 
 
 
