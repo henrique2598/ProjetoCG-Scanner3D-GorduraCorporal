@@ -132,8 +132,8 @@ class TelaSoftware(Widget):
         else:
             self.gorduraCorporal = (495 / Densidade) - 450
 
-        self.gorduraCorporal = '{0:.2f}'.format(self.gorduraCorporal)
-        self.gorduraCorporal_formatado = str(self.gorduraCorporal_formatado)+"%"
+        self.gorduraCorporal = round(self.gorduraCorporal, 2)
+        self.gorduraCorporal_formatado = str(self.gorduraCorporal)+"%"
 
     def gerar_relatorio(self):
         self.calcular_gordura()
