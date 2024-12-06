@@ -99,7 +99,7 @@
         valign: "bottom"
     Label:
         id: label_inicio_volume
-        text: "Volume Modelo 3D: " + str(root.volumeModelo3D)
+        text: "Volume Modelo 3D: " + str(root.volumeModelo3D_formatado)
         pos: label_inicio_etnia.right - label_inicio_etnia.width, label_inicio_etnia.top - label_inicio_etnia.height - 1.5*self.height
         color: (0,0,0,1)
         font_size: 25
@@ -140,11 +140,31 @@
         id: FloatLayout_Instrucoes
         canvas:
             Color:
-                rgba: (1,0,0,1)
+                rgba: (1,0,0,0)
             RoundedRectangle:
                 size : root.width, root.height
                 pos : root.center_x - (root.width/2), root.center_y - (root.height/2)
                 radius: [(40, 40), (40, 40), (40, 40), (40, 40)]
+        Label:
+            id: label_integrantes
+            text:'''Integrantes:\nHenrique Vicente Ferraro Oliveira     11201721650\nLuis\nLuis\nTiago'''
+            pos: root.center_x - (self.width/2), root.top - 1.25*(self.height)
+            color: (1,1,1,1)
+            font_size: 25
+            size_hint: None, None
+            size: self.texture_size
+            halign: "center"
+            valign: "bottom"
+        Label:
+            id: label_instrções
+            text:'''Instruções - Seguir a sequência:\n1. Preencher Dados\n2. Inserir Modelo 3D\n3. Calcular e Gerar Relatório'''
+            pos: root.center_x - (self.width/2), label_integrantes.top - label_integrantes.height - 1.25*(self.height)
+            color: (1,1,1,1)
+            font_size: 25
+            size_hint: None, None
+            size: self.texture_size
+            halign: "center"
+            valign: "bottom"
 
 
 <PopUpCadastro>
@@ -153,7 +173,7 @@
         size: (960, 540)
         canvas.before:
             Color:
-                rgba: (0,1,0,1)
+                rgba: (0,1,0,0)
             RoundedRectangle:
                 size : root.width, root.height
                 pos : root.center_x - (root.width/2), root.center_y - (root.height/2)
@@ -175,7 +195,7 @@
             id: label_name
             text:'Nome'
             pos: input_name.right - input_name.width, input_name.top
-            color: (0,0,0,1)
+            color: (1,1,1,1)
             size_hint: input_name.size_hint
             font_size: self.height*0.25
             text_size: self.size
@@ -184,7 +204,6 @@
 
         TextInput:
             id: input_idade
-            hint_text:'Insira a sua idade'
             size_hint : 0.2, 0.15
             pos: input_name.right - input_name.width, input_name.top - input_name.height - 1.5*self.height
             multiline: False
@@ -198,7 +217,7 @@
             id: label_idade
             text:'Idade'
             pos: input_idade.right - input_idade.width, input_idade.top
-            color: (0,0,0,1)
+            color: (1,1,1,1)
             size_hint: input_idade.size_hint
             font_size: self.height*0.25
             text_size: self.size
@@ -207,7 +226,6 @@
 
         TextInput:
             id: input_peso
-            hint_text:'Insira o seu peso (kg ex: 56.7)'
             size_hint : 0.2, 0.15
             pos: input_name.center_x - (self.width/2), input_name.top - input_name.height - 1.5*self.height
             multiline: False
@@ -221,7 +239,7 @@
             id: label_peso
             text:'Peso (kg ex: 56.7)'
             pos: input_peso.right - input_peso.width, input_peso.top
-            color: (0,0,0,1)
+            color: (1,1,1,1)
             size_hint: input_peso.size_hint
             font_size: self.height*0.25
             text_size: self.size
@@ -230,7 +248,6 @@
         
         TextInput:
             id: input_altura
-            hint_text:'Altura (cm)'
             size_hint : 0.2, 0.15
             pos: input_name.right - self.width, input_name.top - input_name.height - 1.5*self.height
             multiline: False
@@ -244,7 +261,7 @@
             id: label_altura
             text:'Altura (cm)'
             pos: input_altura.right - input_altura.width, input_altura.top
-            color: (0,0,0,1)
+            color: (1,1,1,1)
             size_hint: input_altura.size_hint
             font_size: self.height*0.25
             text_size: self.size
@@ -267,7 +284,7 @@
             id: label_sexo
             text:'Sexo'
             pos: input_sexo.right - input_sexo.width, input_sexo.top
-            color: (0,0,0,1)
+            color: (1,1,1,1)
             size_hint: input_sexo.size_hint
             font_size: self.height*0.25
             text_size: self.size
@@ -290,7 +307,7 @@
             id: label_etnia
             text:'Etnia'
             pos: input_etnia.right - input_etnia.width, input_etnia.top
-            color: (0,0,0,1)
+            color: (1,1,1,1)
             size_hint: input_etnia.size_hint
             font_size: self.height*0.25
             text_size: self.size
