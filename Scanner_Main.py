@@ -38,7 +38,7 @@ class PandaApp(ShowBase):
         print("Selecionando o manequim")
         print("Reconstruindo o manequim")
         print("Calculando o volume do manequim")
-        App.get_running_app().root.volumeModelo3D = 10
+        App.get_running_app().root.volumeModelo3D = 75729
 
 
 

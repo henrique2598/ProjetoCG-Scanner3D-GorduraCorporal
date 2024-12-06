@@ -116,9 +116,24 @@ class TelaSoftware(Widget):
     def select_file(self):
         print(App.get_running_app())
 
-    def calcular_gordura(self):
-        self.gorduraCorporal = 75.25
-        self.gorduraCorporal_formatado = "75,25%"
+    def calcular_gordura(self):        
+        volumePulmao = (((0.0472*(self.altura))+(0.000009*self.peso))-5.92)*1000
+        Densidade = self.peso/(self.volumeModelo3D-volumePulmao)
+        #Equação para Afrodescendentes:
+        if(self.etnia == "Afro-americano"):
+            self.gorduraCorporal = (437 / Densidade) - 393
+        #Equação para Afrodescendentes:
+        elif(self.etnia == "Afrodescendente"):
+            self.gorduraCorporal = (437 / Densidade) - 392
+        #Equação para Asiáticos:
+        elif(self.etnia == "Asiático"):
+            self.gorduraCorporal = (503 / Densidade) - 462
+        #Equação Geral de Siri (Original):
+        else:
+            self.gorduraCorporal = (495 / Densidade) - 450
+
+        self.gorduraCorporal = '{0:.2f}'.format(self.gorduraCorporal)
+        self.gorduraCorporal_formatado = str(self.gorduraCorporal_formatado)+"%"
 
     def gerar_relatorio(self):
         self.calcular_gordura()
